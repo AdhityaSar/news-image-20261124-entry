@@ -1,20 +1,10 @@
-// render/render.mjs — the build-time renderer for this entry.
-//
-// Launches local headless Chrome over src/page.html at window size 1024x1024,
-// writes entry.png in the repository root, then reads the PNG's own IHDR to
-// check it is exactly 1024x1024 and under 1 MiB. No dependencies, no network.
-// main.ts never runs Chrome; this file exists for the build only.
+// render/render.mjs — joins src/p1..p6 in order and screenshots entry.png at 1024x1024.
+// Node 22, no dependencies, no network; Chrome is local.
 //
 //   node render/render.mjs
-//   node render/render.mjs --size=1024x1400 --out=measure/auto.png --auto-height
-//   node render/render.mjs --size=300x300   --out=measure/thumb.png --auto-height
-//
-// --auto-height re-renders the same page with only the fixed body height
-// relaxed to auto, so the full document can be measured for overflow.
 
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -22,82 +12,54 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 const MAX_BYTES = 1048576;
 
-const has = (name) => process.argv.includes(`--${name}`);
-const opt = (name, fallback) => {
-  const hit = process.argv.find((a) => a.startsWith(`--${name}=`));
-  return hit ? hit.slice(name.length + 3) : fallback;
-};
+// 1. the six parts, in order, joined with a newline
+const parts = ["p1.html", "p2.html", "p3.html", "p4.html", "p5.html", "p6.html"];
+const html = parts
+  .map((p) => readFileSync(join(ROOT, "src", p), "utf8").replace(/\r\n/g, "\n"))
+  .join("\n");
 
-const srcPage = resolve(ROOT, opt("src", "src/page.html"));
-const outPath = resolve(ROOT, opt("out", "entry.png"));
-const [width, height] = opt("size", "1024x1024")
-  .split("x")
-  .map((n) => Number.parseInt(n, 10));
+const pagePath = join(ROOT, "render", "page.html");
+writeFileSync(pagePath, html, "utf8");
+console.log(`page.html: ${Buffer.byteLength(html)} bytes from ${parts.length} parts`);
 
-function pngInfo(buf) {
-  const sig = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
-  const magic = sig.every((b, i) => buf[i] === b);
-  const isPng = magic && buf.subarray(12, 16).toString("latin1") === "IHDR";
-  return {
-    isPng,
-    width: isPng ? buf.readUInt32BE(16) : 0,
-    height: isPng ? buf.readUInt32BE(20) : 0,
-  };
-}
-
-// Chrome's scratch page and profile live outside the repository, so a render
-// never leaves stray files in the tree (the only ignore entry is out/).
-const work = join(tmpdir(), "makefun-render-work");
-mkdirSync(work, { recursive: true });
-const pageCopy = resolve(work, "page.html");
-
-let html = readFileSync(srcPage, "utf8");
-if (has("auto-height")) {
-  // Only the page box rule (the one carrying height: 1024px) is relaxed; every
-  // element keeps its own box, so the document height equals the real ink extent.
-  const relaxed = html.replace(/height:\s*1024px;/, "height: auto;");
-  if (relaxed === html) throw new Error("--auto-height: could not relax the body height");
-  html = relaxed;
-}
-writeFileSync(pageCopy, html, "utf8");
-
+// 2. screenshot it
+const outPath = join(ROOT, "entry.png");
 mkdirSync(dirname(outPath), { recursive: true });
-rmSync(outPath, { force: true });
+if (existsSync(outPath)) unlinkSync(outPath);
 
 execFileSync(
   CHROME,
   [
     "--headless=new",
     "--disable-gpu",
-    "--no-sandbox",
-    "--no-first-run",
-    "--no-default-browser-check",
-    "--disable-extensions",
     "--hide-scrollbars",
+    "--window-size=1024,1024",
     "--force-device-scale-factor=1",
-    "--force-color-profile=srgb",
-    "--virtual-time-budget=2000",
-    `--user-data-dir=${resolve(work, "profile")}`,
-    `--window-size=${width},${height}`,
+    "--default-background-color=ffffffff",
     `--screenshot=${outPath}`,
-    pathToFileURL(pageCopy).href,
+    pathToFileURL(pagePath).href,
   ],
-  { stdio: "ignore", timeout: 180000 }
+  { stdio: "ignore", windowsHide: true, timeout: 180000 }
 );
 
-const buf = readFileSync(outPath);
-const info = pngInfo(buf);
-console.log(
-  `rendered ${srcPage} at ${width}x${height} -> ${outPath}: ` +
-    `${buf.length} bytes, ${info.width}x${info.height}, png=${info.isPng}`
-);
+// 3. verify from the PNG's own signature and IHDR
+const png = readFileSync(outPath);
+const sig = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+const isPng =
+  sig.every((b, i) => png[i] === b) && png.subarray(12, 16).toString("latin1") === "IHDR";
+if (!isPng) {
+  console.error("entry.png is not a PNG");
+  process.exit(1);
+}
+const width = png.readUInt32BE(16);
+const height = png.readUInt32BE(20);
+console.log(`entry.png: ${width}x${height}, ${png.length} bytes`);
 
-if (!info.isPng) throw new Error("output is not a PNG");
-if (info.width !== width || info.height !== height) {
-  throw new Error(`expected ${width}x${height}, got ${info.width}x${info.height}`);
+if (width !== 1024 || height !== 1024) {
+  console.error(`expected 1024x1024, got ${width}x${height}`);
+  process.exit(1);
 }
-if (buf.length > MAX_BYTES) {
-  throw new Error(`PNG is ${buf.length} bytes, over the ${MAX_BYTES} limit`);
+if (png.length > MAX_BYTES) {
+  console.error(`entry.png is ${png.length} bytes, over ${MAX_BYTES}`);
+  process.exit(1);
 }
-writeFileSync(outPath, buf, { mode: 0o644 });
-console.log(`ok: ${info.width}x${info.height}, ${buf.length} bytes, under 1 MiB`);
