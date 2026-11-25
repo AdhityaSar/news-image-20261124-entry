@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tuesday 24 November 2026 · The World in One Day</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1024px; height: 1024px; overflow: hidden;
+    background: #faf7ef; color: #14110e;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .abs { position: absolute; }
+
+  /* ---------- header ---------- */
+  #head { left: 0; top: 0; width: 1024px; height: 186px; }
+  #rule { left: 0; top: 182px; width: 1024px; height: 4px; background: #14110e; }
+  #kicker { left: 20px; top: 13px; font-size: 12.5px; font-weight: 700; letter-spacing: .26em; color: #b3121b; }
+  #topright { right: 20px; top: 13px; font-size: 11px; font-weight: 700; letter-spacing: .13em; }
+  #date {
+    left: 18px; top: 30px; font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700; font-size: 52px; line-height: 1; letter-spacing: -1.2px; white-space: nowrap;
+  }
+  #deck {
+    left: 20px; top: 90px; width: 984px;
+    font-family: Georgia, "Times New Roman", serif; font-style: italic;
+    font-size: 15px; line-height: 1.3; color: #2b2723;
+  }
+  #numbers { left: 20px; top: 130px; width: 984px; display: flex; }
+  .num { flex: 1 1 0; border-left: 3px solid #14110e; padding: 4px 6px 0 9px; }
+
+  /* ---------- cards ---------- */
+  #grid {
+    left: 20px; top: 196px; width: 984px; display: grid;
+    grid-template-columns: 240px 240px 240px 240px;
+    grid-auto-rows: 206px; column-gap: 8px; row-gap: 9px;
+  }
+  .card {
+    width: 240px; height: 206px; padding: 7px; overflow: hidden;
+    background: #ffffff; border: 1.5px solid #14110e;
+  }
+  .card svg.scene { display: block; width: 222px; height: 96px; }
+  .k { margin-top: 4px; font-size: 9.5px; font-weight: 700; letter-spacing: .11em; color: #b3121b; white-space: nowrap; }
+  .h { margin-top: 2px; font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 18px; line-height: 1.06; }
+  .d { margin-top: 3px; font-size: 11.5px; line-height: 1.14; color: #3a352e; }
+
+  /* ---------- bottom band ---------- */
+  #mapbox { left: 20px; top: 846px; width: 424px; height: 160px; background: #ffffff; border: 1.5px solid #14110e; }
+  #also { left: 460px; top: 846px; width: 544px; height: 160px; }
+  #alsohead { font-size: 11px; font-weight: 700; letter-spacing: .2em; color: #b3121b; line-height: 13px; }
+  #alsorule { margin-top: 2px; width: 544px; height: 2px; background: #14110e; }
+  #briefs { margin-top: 5px; display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 11px; }
+  .br { font-size: 11px; line-height: 1.2; padding-bottom: 3px; border-bottom: 1px dotted #c8c0b1; margin-bottom: 3px; }
+
+  /* ---------- footer ---------- */
+  #foot { left: 20px; top: 1008px; width: 984px; font-size: 8.5px; color: #6b6459; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div class="abs" id="head">
+  <div class="abs" id="kicker">THE WORLD IN ONE DAY</div>
+  <div class="abs" id="topright">12 PICTURED · 5 REGIONS · 24 STORIES</div>
+  <div class="abs" id="date">TUESDAY 24 NOVEMBER 2026</div>
+  <div class="abs" id="deck">China investigates Shanghai’s party chief · A New York jury convicts Huawei<br>Russian glide bombs kill two in Zaporizhzhia · Sanofi agrees to buy Insmed for $41bn</div>
+  <div class="abs" id="numbers">
+    <div class="num"><svg width="176" height="42" viewBox="0 0 176 42" xmlns="http://www.w3.org/2000/svg"><text x="0" y="19" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14110e">2</text><text x="0" y="34" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.4" fill="#14110e">KILLED IN ZAPORIZHZHIA</text></svg></div>
+    <div class="num"><svg width="176" height="42" viewBox="0 0 176 42" xmlns="http://www.w3.org/2000/svg"><text x="0" y="19" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14110e">13</text><text x="0" y="34" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.4" fill="#14110e">DEAD IN UAE BUS CRASH</text></svg></div>
+    <div class="num"><svg width="176" height="42" viewBox="0 0 176 42" xmlns="http://www.w3.org/2000/svg"><text x="0" y="19" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14110e">$41BN</text><text x="0" y="34" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.4" fill="#14110e">SANOFI BUYS INSMED</text></svg></div>
+    <div class="num"><svg width="176" height="42" viewBox="0 0 176 42" xmlns="http://www.w3.org/2000/svg"><text x="0" y="19" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14110e">5,258</text><text x="0" y="34" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.4" fill="#14110e">UK HEAT DEATHS, A RECORD</text></svg></div>
+    <div class="num"><svg width="176" height="42" viewBox="0 0 176 42" xmlns="http://www.w3.org/2000/svg"><text x="0" y="19" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14110e">481</text><text x="0" y="34" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.4" fill="#14110e">GARMENT FACTORIES HALTED</text></svg></div>
+  </div>
+</div>
+<div class="abs" id="rule"></div>
+
+<div class="abs" id="grid">
+
+  <!-- 1 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#2f4a7a"/>
+      <path d="M0 96V66h15V52h17v14h12V38h19v28h11V24h17v42h13V48h16v18h18V36h20v26h14v34z" fill="#5d76a2"/>
+      <circle cx="150" cy="28" r="18" fill="none" stroke="#ffffff" stroke-width="4"/>
+      <path d="M163 41L180 60" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">SHANGHAI</text>
+      <rect x="140" y="70" width="70" height="18" fill="#b3121b"/>
+      <text x="175" y="83" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.6" fill="#ffffff">PROBE</text>
+    </svg>
+    <div class="k">ASIA · CHINA · POLITICS</div>
+    <div class="h">Chen Jining is put under investigation</div>
+    <div class="d">A Politburo member and once a Xi protégé, probed for “serious violations”.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#7a4a2f"/>
+      <path d="M96 96V54l15-10 15 10 15-10 15 10 15-10 15 10 15-10 15 10v42z" fill="#a3704e"/>
+      <path d="M12 84h52v10H12z" fill="#f2e6da"/>
+      <path d="M16 80V52h44v10H26v18z" fill="#f2e6da"/>
+      <path d="M30 62v16M38 62v16" stroke="#f2e6da" stroke-width="3"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">DHAKA</text>
+      <rect x="139" y="8" width="75" height="18" fill="#b3121b"/>
+      <text x="176" y="21" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.6" fill="#ffffff">481 PLANTS</text>
+    </svg>
+    <div class="k">ASIA · BANGLADESH · LABOUR</div>
+    <div class="h">Wage protests halt 481 garment factories</div>
+    <div class="d">Police fire tear gas in Gazipur and Savar; Hasina returns home on 16 December.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#3f3f52"/>
+      <path d="M62 48L111 20l49 28z" fill="#e6e2d6"/>
+      <path d="M56 92h110v-6H56zM60 84h102v-6H60z" fill="#e6e2d6"/>
+      <path d="M66 52h9v26h-9zM88 52h9v26h-9zM110 52h9v26h-9zM132 52h9v26h-9z" fill="#e6e2d6"/>
+      <path d="M168 22h40v7h-40z" fill="#e6e2d6"/>
+      <path d="M188 29v22" stroke="#e6e2d6" stroke-width="5"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">NEW YORK</text>
+      <rect x="14" y="70" width="64" height="18" fill="#b3121b"/>
+      <text x="46" y="83" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.6" fill="#ffffff">GUILTY</text>
+    </svg>
+    <div class="k">AMERICAS · COURTS · TECH</div>
+    <div class="h">Jury convicts Huawei of stealing trade secrets</div>
+    <div class="d">Guilty on 10 of 12 counts, cleared of racketeering; Huawei will appeal.</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#2f6b4a"/>
+      <polyline points="12,66 42,52 68,60 98,36 126,44 158,24 190,30 210,14" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M196 10h18v18z" fill="#ffffff"/>
+      <rect x="0" y="74" width="222" height="22" fill="#14110e"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">WALL ST</text>
+      <text x="213" y="90" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.4" fill="#ffffff">50,000</text>
+    </svg>
+    <div class="k">AMERICAS · MARKETS</div>
+    <div class="h">Dow closes back above 50,000 as AI rally fades</div>
+    <div class="d">The Dow gains 0.9% to 50,040 as chips slide; Anthropic ends below its $83 offer.</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#6b2f38"/>
+      <path d="M24 32h92v64H24z" fill="#e2cfc7"/>
+      <path d="M32 42h10v10H32zM50 42h10v10H50zM104 42h10v10h-10zM32 60h10v10H32zM50 60h10v10H50zM104 60h10v10h-10zM32 78h10v10H32zM50 78h10v10H50zM104 78h10v10h-10z" fill="#6b2f38"/>
+      <path d="M68 60h10v10H68zM86 60h10v10H86zM86 78h10v10H86z" fill="#14110e"/>
+      <path d="M150 18h56v8h-56z" fill="#e2cfc7"/>
+      <path d="M154 26l8 10M202 26l-8 10" stroke="#e2cfc7" stroke-width="4"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0" fill="#ffffff">ZAPORIZHZHIA</text>
+      <rect x="146" y="68" width="68" height="18" fill="#b3121b"/>
+      <text x="180" y="81" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.6" fill="#ffffff">STRIKE</text>
+    </svg>
+    <div class="k">EUROPE · UKRAINE · WAR</div>
+    <div class="h">Russian glide bombs kill two in Zaporizhzhia</div>
+    <div class="d">A five-storey block is hit, about 40 hurt; Zelensky puts 2027 support at $125bn.</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#3a5a6b"/>
+      <rect x="18" y="38" width="58" height="26" rx="13" fill="#eef0ee"/>
+      <path d="M47 64V38a13 13 0 0 1 0 26z" fill="#b3121b"/>
+      <polyline points="96,76 122,60 142,66 182,26" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M170 24h18v18z" fill="#ffffff"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">PARIS</text>
+      <rect x="146" y="70" width="68" height="18" fill="#b3121b"/>
+      <text x="180" y="83" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.4" fill="#ffffff">$41BN</text>
+    </svg>
+    <div class="k">EUROPE · FRANCE · BUSINESS</div>
+    <div class="h">Sanofi to buy Insmed for $41bn in cash</div>
+    <div class="d">$175 a share for the US respiratory-drug maker, its biggest deal in two decades.</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#7a5a2f"/>
+      <circle cx="166" cy="56" r="15" fill="#f6e2b4"/>
+      <path d="M166 30v-9M166 91v-9M192 56h9M131 56h9M184 38l6-6M142 80l6-6M184 74l6 6M142 32l6 6" stroke="#f6e2b4" stroke-width="4" stroke-linecap="round"/>
+      <rect x="48" y="24" width="14" height="50" rx="7" fill="#f6e2b4"/>
+      <circle cx="55" cy="78" r="14" fill="#b3121b"/>
+      <rect x="52" y="52" width="6" height="26" fill="#b3121b"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">LONDON</text>
+      <rect x="92" y="16" width="62" height="18" fill="#b3121b"/>
+      <text x="123" y="29" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.3" fill="#ffffff">5,258</text>
+    </svg>
+    <div class="k">EUROPE · BRITAIN · CLIMATE</div>
+    <div class="h">Britain records 5,258 heat deaths, a record</div>
+    <div class="d">The UK Health Security Agency says 2026 passes the record set in 2022.</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#5a2f4a"/>
+      <path d="M34 96V64a26 26 0 0 1 52 0v32z" fill="#e6d7d0"/>
+      <path d="M100 96V46h6v50z" fill="#e6d7d0"/>
+      <path d="M95 46a8 8 0 0 1 16 0z" fill="#e6d7d0"/>
+      <circle cx="178" cy="30" r="10" fill="#c9bfc6"/>
+      <circle cx="164" cy="42" r="7" fill="#c9bfc6"/>
+      <path d="M182 12h34v6h-34zM199 18v10" stroke="#e6d7d0" stroke-width="4"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">GAZA</text>
+      <rect x="128" y="70" width="86" height="18" fill="#b3121b"/>
+      <text x="171" y="83" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.2" fill="#ffffff">AIR STRIKE</text>
+    </svg>
+    <div class="k">MIDDLE EAST · GAZA · CONFLICT</div>
+    <div class="h">Israeli strike kills Hamas’s security chief</div>
+    <div class="d">Naeem Abu Nahel is killed in Gaza City; Netanyahu says Israel’s reach is long.</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#2f5a5a"/>
+      <path d="M0 62h222v34H0z" fill="#3f7272"/>
+      <path d="M18 48h44v14H18z" fill="#e6ebe6"/>
+      <path d="M26 36h8v12h-8z" fill="#e6ebe6"/>
+      <path d="M88 48h44v14H88z" fill="#e6ebe6"/>
+      <path d="M96 38h10v10H96z" fill="#e6ebe6"/>
+      <path d="M10 78q12-10 24 0q12-10 24 0q12-10 24 0q12-10 24 0q12-10 24 0q12-10 24 0q12-10 24 0q12-10 24 0" fill="none" stroke="#e6ebe6" stroke-width="5"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">ADEN</text>
+      <rect x="158" y="6" width="60" height="18" fill="#b3121b"/>
+      <text x="188" y="19" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.6" fill="#ffffff">SIEGE</text>
+    </svg>
+    <div class="k">MIDDLE EAST · YEMEN · CONFLICT</div>
+    <div class="h">Houthi forces close in on the port of Aden</div>
+    <div class="d">Troops dig in behind a fortified line while the Saudi-led coalition strikes back.</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#4a3a2f"/>
+      <path d="M0 68h222v28H0z" fill="#5e4a3c"/>
+      <path d="M62 68V46h84l16 22z" fill="#e6ddd2"/>
+      <path d="M96 46V32h22v14z" fill="#e6ddd2"/>
+      <circle cx="112" cy="22" r="10" fill="#b9aea2"/>
+      <circle cx="98" cy="12" r="7" fill="#b9aea2"/>
+      <circle cx="126" cy="8" r="6" fill="#b9aea2"/>
+      <circle cx="40" cy="82" r="9" fill="#14110e"/>
+      <path d="M40 69v-5M40 95v5M27 82h-5M53 82h5M31 73l-4-4M49 91l4 4M49 73l4-4M31 91l-4 4" stroke="#e6ddd2" stroke-width="3" stroke-linecap="round"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">HORMUZ</text>
+      <rect x="146" y="6" width="62" height="18" fill="#b3121b"/>
+      <text x="177" y="19" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.6" fill="#ffffff">MINES</text>
+    </svg>
+    <div class="k">MIDDLE EAST · IRAN · DIPLOMACY</div>
+    <div class="h">Iran: no US talks until seven demands are met</div>
+    <div class="d">Tehran also says three tankers hit mines in the Strait of Hormuz and burned.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#2f6b3a"/>
+      <path d="M64 20h58v16a29 29 0 0 1-58 0z" fill="#f7f3e8"/>
+      <path d="M64 46h58v16a29 29 0 0 1-58 0z" fill="#f2c94c"/>
+      <path d="M64 72h58v2a29 29 0 0 1-58 0z" fill="#b3121b"/>
+      <path d="M86 66h14v12H86z" fill="#f7f3e8"/>
+      <path d="M68 78h50v10H68z" fill="#f7f3e8"/>
+      <path d="M64 26H44v10a20 20 0 0 0 20 20M122 26h20v10a20 20 0 0 1-20 20" fill="none" stroke="#f7f3e8" stroke-width="5"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">SENEGAL</text>
+      <rect x="128" y="8" width="86" height="18" fill="#b3121b"/>
+      <text x="171" y="21" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.2" fill="#ffffff">CHAMPIONS</text>
+    </svg>
+    <div class="k">AFRICA · SENEGAL · SPORT</div>
+    <div class="h">Senegal’s Africa Cup title restored</div>
+    <div class="d">Sport’s court overturns CAF’s annulment of Senegal’s 1-0 final win over Morocco.</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+    <svg class="scene" viewBox="0 0 222 96" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="222" height="96" fill="#5a4a2f"/>
+      <path d="M18 92V66h42v26zM80 92V58h44v34zM142 92V70h38v22z" fill="#dcc9a8"/>
+      <path d="M12 66l27-20 27 20zM74 58l28-22 28 22zM136 70l25-18 25 18z" fill="#f0e2c6"/>
+      <path d="M4 8q40 34 60 52M4 8q56 20 92 30" fill="none" stroke="#b3121b" stroke-width="3"/>
+      <path d="M60 56l7 4-3 6zM92 36l8 3-2 8z" fill="#b3121b"/>
+      <text x="9" y="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="12" letter-spacing="0.6" fill="#ffffff">TIGRAY</text>
+      <rect x="118" y="6" width="94" height="18" fill="#b3121b"/>
+      <text x="165" y="19" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="11" letter-spacing="0.2" fill="#ffffff">WAR CRIMES</text>
+    </svg>
+    <div class="k">AFRICA · ETHIOPIA · RIGHTS</div>
+    <div class="h">Amnesty: try Tigray shelling as war crimes</div>
+    <div class="d">Artillery hit civilian districts of Alamata, it says; the strikes must be investigated.</div>
+  </div>
+
+</div>
+
+<div class="abs" id="mapbox">
+  <svg width="421" height="157" viewBox="0 0 421 157" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="421" height="157" fill="#eae4d4"/>
+    <g fill="#cfc4ad">
+      <polygon points="20,52 30,34 50,26 74,24 92,32 99,46 92,56 78,55 74,64 62,70 54,80 45,76 44,62 30,60"/>
+      <polygon points="104,18 118,15 126,24 118,32 104,30"/>
+      <polygon points="60,86 74,82 86,90 90,106 82,122 72,138 63,126 58,106"/>
+      <polygon points="156,36 170,28 184,24 196,28 206,34 202,46 190,50 180,54 170,50 160,46"/>
+      <polygon points="157,30 166,27 168,40 160,44"/>
+      <polygon points="146,66 164,62 182,64 200,62 214,66 222,78 216,92 210,108 202,122 192,134 178,138 166,128 156,112 148,94 142,78"/>
+      <polygon points="228,52 244,50 258,58 258,74 248,88 232,92 222,82 220,66"/>
+      <polygon points="232,26 250,18 276,14 304,16 330,22 352,20 372,28 378,42 366,52 348,52 330,48 316,56 300,60 288,54 272,56 258,50 244,44"/>
+      <polygon points="262,70 276,68 282,82 276,96 266,94 258,84"/>
+      <polygon points="292,68 306,64 316,74 310,86 296,84"/>
+      <polygon points="322,108 344,102 368,106 380,118 370,132 348,134 330,124"/>
+    </g>
+    <text x="6" y="13" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="1.33" fill="#6b6459">WHERE IT HAPPENED</text>
+    <text x="34" y="128" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8" letter-spacing="1" fill="#b3a894">PACIFIC</text>
+    <text x="106" y="52" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8" letter-spacing="1" fill="#b3a894">ATLANTIC</text>
+    <text x="330" y="92" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8" letter-spacing="1" fill="#b3a894">INDIAN</text>
+    <g fill="#14110e" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="10">
+      <circle cx="306" cy="50" r="2.5"/><text x="289.8" y="66.1">CHINA</text>
+      <circle cx="270" cy="82" r="2.5"/><text x="235.0" y="102.0">BANGLADESH</text>
+      <circle cx="200" cy="40" r="2.5"/><text x="178.1" y="30.3">UKRAINE</text>
+      <circle cx="180" cy="52" r="2.5"/><text x="158.3" y="68.5">FRANCE</text>
+      <circle cx="163" cy="38" r="2.5"/><text x="136.0" y="28.5">BRITAIN</text>
+      <circle cx="226" cy="76" r="2.5"/><text x="204.6" y="92.1">GAZA</text>
+      <circle cx="244" cy="86" r="2.5"/><text x="236.2" y="115.2">YEMEN</text>
+      <circle cx="240" cy="62" r="2.5"/><text x="228.1" y="52.7">IRAN</text>
+      <circle cx="152" cy="82" r="2.5"/><text x="127.6" y="97.9">SENEGAL</text>
+      <circle cx="208" cy="108" r="2.5"/><text x="183.9" y="124.3">ETHIOPIA</text>
+      <circle cx="62" cy="60" r="2.5"/><text x="49.4" y="76.0">USA</text>
+</g>
+  </svg>
+</div>
+
+<div class="abs" id="also">
+  <div id="alsohead">ALSO ON THE DAY</div>
+  <div id="alsorule"></div>
+  <div id="briefs">
+    <div class="br"><b>UAE:</b> 13 killed, 14 hurt in Ras Al Khaimah bus crash</div>
+    <div class="br"><b>VIETNAM:</b> Hanoi hot-pot gas blast kills at least six</div>
+    <div class="br"><b>TURKEY:</b> Cougar crash in Eskişehir kills five air force crew</div>
+    <div class="br"><b>COLOMBIA:</b> armed men hold 25 hostage in Cartagena store</div>
+    <div class="br"><b>UN:</b> 47,000 women and girls killed by partners or family in 2025</div>
+    <div class="br"><b>INDONESIA:</b> sweets-factory fire toll rises to 26, with 28 missing</div>
+    <div class="br"><b>PHILIPPINES:</b> Supreme Court clears Duterte’s ICC transfer</div>
+    <div class="br"><b>SUDAN:</b> RSF drone strikes kill 19 civilians in Blue Nile state</div>
+    <div class="br"><b>VATICAN:</b> Pope Francis’s private diary describes a spiritual crisis</div>
+    <div class="br"><b>CANADA:</b> Pentagon rebukes Ottawa over F-35s and spending</div>
+    <div class="br"><b>PAKISTAN:</b> Sikh pilgrims mark Guru Nanak’s 557th birthday</div>
+    <div class="br"><b>BRAZIL:</b> Jair Bolsonaro is back in hospital with pneumonia</div>
+  </div>
+</div>
+
+<div class="abs" id="foot">Every story here happened, or was first reported, on Tuesday 24 November 2026 · sources named on each card · original drawings, no photographs</div>
+
+</body>
+</html>
